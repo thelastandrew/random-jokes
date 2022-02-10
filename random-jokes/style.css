@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 150px auto 0;
+  text-align: center;
+}
+
+.img {
+  margin-bottom: 30px;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  border: none;
+  border-radius: 2px;
+  background-color: #717f95;
+  color: aliceblue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #4683e4;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.quote {
+  font-size: 20px;
+  color: #717f95;
+  line-height: 1.5em;
+}
