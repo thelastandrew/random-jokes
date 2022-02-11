@@ -8,11 +8,31 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #717f95;
+  line-height: 1.5em;
+}
+
+.header {
+  margin-top: 150px;
+}
+
+.lang-switch {
+  text-align: right;
+}
+
+.lang {
+  cursor: pointer;
+}
+
+.lang.active {
+  font-weight: bold;
+  color: #4683e4;
 }
 
 .container {
   max-width: 800px;
-  margin: 150px auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -42,10 +62,4 @@ body {
 
 .line-through {
   text-decoration: line-through;
-}
-
-.quote {
-  font-size: 20px;
-  color: #717f95;
-  line-height: 1.5em;
 }
