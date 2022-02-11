@@ -4,6 +4,7 @@ const audio = document.querySelector('.audio');
 const quote = document.querySelector('.quote');
 const lang = document.querySelectorAll('.lang');
 let activeLang = document.querySelector('.active');
+let img = document.querySelector('.img');
 
 //Lang switcher
 function changeColor(el) {
@@ -17,9 +18,17 @@ function changeColor(el) {
 lang.forEach((element) => {
   element.addEventListener('click', function (e) {
     changeColor(element);
+    if (element.id === 'ru') {
+      img.innerHTML =
+        '<img src="./assets/img/png/jason.png" alt="Jason Statham">';
+    } else if (element.id === 'en') {
+      img.innerHTML =
+        '<img src="./assets/img/png/chuck.png" alt="Chuck Norris">';
+    }
   });
 });
 
+//Quote generator
 btn.addEventListener('click', (e) => {
   audio.play();
   getData();
