@@ -36,6 +36,10 @@ body {
   text-align: center;
 }
 
+.main {
+  margin-bottom: 40px;
+}
+
 .img {
   margin-bottom: 30px;
 }
@@ -62,4 +66,18 @@ body {
 
 .line-through {
   text-decoration: line-through;
+}
+
+.quote {
+  height: 120px;
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rss img {
+  height: 30px;
 }
