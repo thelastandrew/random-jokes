@@ -28,10 +28,21 @@ function changePic(el) {
   }
 }
 
+function changeBtn(el) {
+  if (el.id === 'ru') {
+    btn.innerHTML = 'я этого не говорил (джейсон стэтхем)';
+    getQuotes();
+  } else if (el.id === 'en') {
+    btn.innerHTML = 'try <span class="line-through">not</span> to laugh';
+    getJokes();
+  }
+}
+
 lang.forEach((element) => {
   element.addEventListener('click', function (e) {
     changeColor(element);
     changePic(element);
+    changeBtn(element);
   });
 });
 
@@ -79,6 +90,7 @@ function getLocalStorage() {
     const receivedLang = localStorage.getItem('lang');
     changeColor(document.getElementById(receivedLang));
     changePic(document.getElementById(receivedLang));
+    changeBtn(document.getElementById(receivedLang));
   } else {
     getJokes();
   }
