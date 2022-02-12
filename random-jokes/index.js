@@ -15,18 +15,23 @@ function changeColor(el) {
   }
 }
 
+function changePic(el) {
+  if (el.id === 'ru') {
+    img.innerHTML =
+      '<img src="./assets/img/png/jason.png" alt="Jason Statham">';
+    getQuotes();
+    storedLang = 'ru';
+  } else if (el.id === 'en') {
+    img.innerHTML = '<img src="./assets/img/png/chuck.png" alt="Chuck Norris">';
+    getJokes();
+    storedLang = 'en';
+  }
+}
+
 lang.forEach((element) => {
   element.addEventListener('click', function (e) {
     changeColor(element);
-    if (element.id === 'ru') {
-      img.innerHTML =
-        '<img src="./assets/img/png/jason.png" alt="Jason Statham">';
-      getQuotes();
-    } else if (element.id === 'en') {
-      img.innerHTML =
-        '<img src="./assets/img/png/chuck.png" alt="Chuck Norris">';
-      getJokes();
-    }
+    changePic(element);
   });
 });
 
@@ -53,8 +58,6 @@ function showData(data) {
   quote.innerHTML = data;
 }
 
-getJokes();
-
 async function getQuotes() {
   const res = await fetch('./quotes.json');
   const data = await res.json();
@@ -63,4 +66,21 @@ async function getQuotes() {
   showData(quote);
 }
 
-getQuotes();
+//Local storage
+let storedLang = 'en';
+
+function setLocalStorage() {
+  localStorage.setItem('lang', storedLang);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+  if (localStorage.getItem('lang')) {
+    const receivedLang = localStorage.getItem('lang');
+    changeColor(document.getElementById(receivedLang));
+    changePic(document.getElementById(receivedLang));
+  } else {
+    getJokes();
+  }
+}
+window.addEventListener('load', getLocalStorage);
