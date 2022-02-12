@@ -31,18 +31,34 @@ lang.forEach((element) => {
 //Quote generator
 btn.addEventListener('click', (e) => {
   audio.play();
-  getData();
+  if (activeLang.id === 'en') {
+    getJokes();
+  } else {
+    getQuotes();
+  }
 });
 
-async function getData() {
+//Get random jokes and quotes
+async function getJokes() {
   const res = await fetch(url);
-  const data = await res.json();
-  showData(data);
+  const jokes = await res.json();
+  const joke = jokes.value.joke;
+  showData(joke);
 }
 
 function showData(data) {
   quote.innerHTML = '';
-  quote.innerHTML = data.value.joke;
+  quote.innerHTML = data;
 }
 
-getData();
+getJokes();
+
+async function getQuotes() {
+  const res = await fetch('./quotes.json');
+  const data = await res.json();
+  let randomIndex = Math.floor(Math.random() * 100);
+  const quote = `${data[randomIndex].text} <br> - ${data[randomIndex].author}`;
+  showData(quote);
+}
+
+getQuotes();
