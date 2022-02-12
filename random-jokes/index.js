@@ -21,9 +21,11 @@ lang.forEach((element) => {
     if (element.id === 'ru') {
       img.innerHTML =
         '<img src="./assets/img/png/jason.png" alt="Jason Statham">';
+      getQuotes();
     } else if (element.id === 'en') {
       img.innerHTML =
         '<img src="./assets/img/png/chuck.png" alt="Chuck Norris">';
+      getJokes();
     }
   });
 });
