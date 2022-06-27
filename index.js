@@ -1,4 +1,4 @@
-const url = 'https://api.icndb.com/jokes/random';
+const url = 'https://api.chucknorris.io/jokes/random';
 const btn = document.querySelector('.btn');
 const audio = document.querySelector('.audio');
 const quote = document.querySelector('.quote');
@@ -60,7 +60,7 @@ btn.addEventListener('click', (e) => {
 async function getJokes() {
   const res = await fetch(url);
   const jokes = await res.json();
-  const joke = jokes.value.joke;
+  const joke = jokes.value;
   showData(joke);
 }
 
